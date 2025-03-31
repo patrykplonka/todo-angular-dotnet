@@ -1,0 +1,6 @@
+@todo_angular_dotnet.Server_HostAddress = http://localhost:5189
+
+GET {{todo_angular_dotnet.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
