@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // Dodaj ten import
+import { CommonModule } from '@angular/common';
 import { TodoService, TodoItem } from '../todo.service';
 
 @Component({
@@ -8,16 +8,33 @@ import { TodoService, TodoItem } from '../todo.service';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule] // Dodaj CommonModule obok FormsModule
+  imports: [CommonModule, FormsModule]
 })
 export class TodoComponent implements OnInit {
   todoItems: TodoItem[] = [];
   newTodo: string = '';
+  theme: string = 'light';
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.loadTodoItems();
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      this.theme = savedTheme;
+    }
+    this.applyTheme();
+  }
+
+  toggleTheme(): void {
+    this.theme = this.theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', this.theme);
+    this.applyTheme();
+  }
+
+  applyTheme(): void {
+    document.body.classList.remove('light-theme', 'dark-theme');
+    document.body.classList.add(this.theme === 'dark' ? 'dark-theme' : 'light-theme');
   }
 
   loadTodoItems(): void {

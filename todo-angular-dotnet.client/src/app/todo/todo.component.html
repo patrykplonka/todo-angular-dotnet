@@ -1,4 +1,8 @@
-<div class="todo-container">
+<div class="todo-container" [ngClass]="theme">
+  <button class="theme-toggle" (click)="toggleTheme()">
+    {{ theme === 'light' ? '🌙 Dark Mode' : '🌞 Light Mode' }}
+  </button>
+
   <h2>Todo List</h2>
   <div class="todo-input">
     <input [(ngModel)]="newTodo" (keyup.enter)="addTodo()" placeholder="Add new todo" />
