@@ -12,7 +12,7 @@ export interface TodoItem {
   providedIn: 'root'
 })
 export class TodoService {
-  private apiUrl = 'api/todo';
+  private apiUrl = 'https://localhost:7210/api/todo';
 
   constructor(private http: HttpClient) { }
 

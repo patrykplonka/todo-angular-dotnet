@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // Dodaj ten import
 import { TodoService, TodoItem } from '../todo.service';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  styleUrls: ['./todo.component.css'],
+  standalone: true,
+  imports: [CommonModule, FormsModule] // Dodaj CommonModule obok FormsModule
 })
 export class TodoComponent implements OnInit {
   todoItems: TodoItem[] = [];
