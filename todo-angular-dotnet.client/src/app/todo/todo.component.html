@@ -1,12 +1,16 @@
-<div>
+<div class="todo-container">
   <h2>Todo List</h2>
-  <input [(ngModel)]="newTodo" (keyup.enter)="addTodo()" placeholder="Add new todo" />
-  <button (click)="addTodo()">Add</button>
+  <div class="todo-input">
+    <input [(ngModel)]="newTodo" (keyup.enter)="addTodo()" placeholder="Add new todo" />
+    <button (click)="addTodo()">➕ Add</button>
+  </div>
   <ul>
-    <li *ngFor="let item of todoItems">
-      <input type="checkbox" [checked]="item.isComplete" (change)="toggleComplete(item)" />
-      {{ item.title }}
-      <button (click)="deleteTodo(item.id)">Delete</button>
+    <li *ngFor="let item of todoItems" [class.completed]="item.isComplete">
+      <label class="todo-item">
+        <input type="checkbox" [checked]="item.isComplete" (change)="toggleComplete(item)" />
+        <span>{{ item.title }}</span>
+      </label>
+      <button class="delete-btn" (click)="deleteTodo(item.id)">❌</button>
     </li>
   </ul>
 </div>
