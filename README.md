@@ -66,7 +66,7 @@ A simple Todo List application built with Angular and .NET, using MS SQL Server 
    ```
 
 ## Usage
-- Open `http://localhost:4200/` in the browser
+- Open `http://localhost:56698/` in the browser
 - Add new tasks using the input field
 - Click the checkbox to mark a task as completed
 - Click the delete button to remove a task
