@@ -76,5 +76,5 @@ A simple Todo List application built with Angular and .NET, using MS SQL Server 
 This project is licensed under the MIT License.
 
 ## Author
-Developed by Patryk Płonka
+Developed by Patryk Płonka.
 
